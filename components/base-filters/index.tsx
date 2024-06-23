@@ -1,10 +1,11 @@
 "use client";
 
 import { Popover, Button, Select, Stack } from "@mantine/core";
-import { SqlFunction, blacklistedFieldsMap } from "@/utils";
-import { IRide } from "@/models";
-import { IMeta } from "@/app/actions";
 import { IconCaretDown } from "@tabler/icons-react";
+
+import { blacklistedFieldsMap, IRide, SqlFunction } from "@/core";
+
+import { IMeta } from "@/app/actions";
 
 export interface IBaseFilters {
   field: keyof IRide;

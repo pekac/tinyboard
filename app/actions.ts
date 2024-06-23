@@ -1,6 +1,6 @@
 "use server";
 
-import { IRide } from "@/models";
+import { IRide } from "@/core/models";
 import { ApiClient } from "@/utils";
 import { redirect } from "next/navigation";
 

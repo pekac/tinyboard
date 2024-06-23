@@ -5,21 +5,22 @@ import { Button, Container, Group, Stack } from "@mantine/core";
 import { BaseFilters, VendorSources } from "@/components";
 
 import {
-  colors,
-  SqlFunction,
-  queryBuilder,
+  ComparisonOperator,
   GetMetadataQuery,
   GetVendorsQuery,
-  ComparisonOperator,
-} from "@/utils";
+  IRide,
+  SqlFunction,
+  queryBuilder,
+} from "@/core";
+
+import { CustomFilter } from "@/components";
+
+import { colors } from "@/utils";
 
 import { getData, applyFilters } from "./actions";
-import { CustomFilter } from "@/components/custom-filter";
-import { IRide } from "@/models";
 
 /**
  * TODO(pekac):
- * - imporve structure - core and utils (types and fns)
  * - remove unused deps
  * - add tests for the query builder
  * */

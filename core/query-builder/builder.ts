@@ -1,21 +1,12 @@
-import { IRide, getIRidePropType } from "@/models";
+import { IRide, getIRidePropType } from "../models";
 
-export enum SqlFunction {
-  SUM = "SUM",
-  AVG = "AVG",
-  COUNT = "COUNT",
-  MIN = "MIN",
-  MAX = "MAX",
-}
+import { ComparisonOperator, SqlFunction } from "./enums";
 
-export enum ComparisonOperator {
-  EQ = "=",
-  NEQ = "!=",
-  GT = ">",
-  GTE = ">=",
-  LT = "<",
-  LTE = "<=",
-}
+export const blacklistedFieldsMap = new Map<string, boolean>([
+  ["vendorid", true],
+  ["tpep_pickup_datetime", true],
+  ["tpep_dropoff_datetime", true],
+]);
 
 export interface IQueryBuilder {
   cmp?: ComparisonOperator;
@@ -25,16 +16,6 @@ export interface IQueryBuilder {
   fn: SqlFunction;
   vendors: number[];
 }
-
-export const blacklistedFieldsMap = new Map<string, boolean>([
-  ["vendorid", true],
-  ["tpep_pickup_datetime", true],
-  ["tpep_dropoff_datetime", true],
-]);
-
-export const GetMetadataQuery = `SELECT * FROM _ LIMIT 1`;
-
-export const GetVendorsQuery = `SELECT DISTINCT vendorid FROM _`;
 
 export function queryBuilder({
   cmp,

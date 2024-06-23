@@ -3,8 +3,8 @@
 import { TextInput, Popover, Button, Select, Stack } from "@mantine/core";
 import { IconCaretDown } from "@tabler/icons-react";
 
-import { ComparisonOperator, blacklistedFieldsMap } from "@/utils";
-import { IRide } from "@/models";
+import { ComparisonOperator, blacklistedFieldsMap, IRide } from "@/core";
+
 import { IMeta } from "@/app/actions";
 
 export interface ICustomFilter {

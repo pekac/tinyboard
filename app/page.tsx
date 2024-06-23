@@ -17,7 +17,6 @@ import { applyFilters, getData } from "./actions";
 
 /**
  * TODO(pekac):
- * - eslint
  * - husky push & commit
  * - readme
  * */

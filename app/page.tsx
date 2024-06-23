@@ -2,7 +2,7 @@ import { ParsedUrlQuery } from "querystring";
 import { LineChart } from "@mantine/charts";
 import { Button, Container, Group, Stack } from "@mantine/core";
 
-import { BaseFilters, VendorSources } from "@/components";
+import { BaseFilters, CustomFilter, VendorSources } from "@/components";
 
 import {
   ComparisonOperator,
@@ -13,8 +13,6 @@ import {
   queryBuilder,
 } from "@/core";
 
-import { CustomFilter } from "@/components";
-
 import { colors } from "@/utils";
 
 import { getData, applyFilters } from "./actions";
@@ -24,6 +22,7 @@ import { getData, applyFilters } from "./actions";
  * - remove unused deps
  * - eslint
  * - husky push & commit
+ * - readme
  * */
 interface HomeSearchParams extends ParsedUrlQuery {
   cmp?: ComparisonOperator;

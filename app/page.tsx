@@ -15,11 +15,6 @@ import { colors } from "@/utils";
 
 import { applyFilters, getData } from "./actions";
 
-/**
- * TODO(pekac):
- * - husky push & commit
- * - readme
- * */
 interface HomeSearchParams extends ParsedUrlQuery {
   cmp?: ComparisonOperator;
   cmpField?: keyof IRide;

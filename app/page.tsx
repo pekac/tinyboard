@@ -1,25 +1,22 @@
-import { ParsedUrlQuery } from "querystring";
 import { LineChart } from "@mantine/charts";
 import { Button, Container, Group, Stack } from "@mantine/core";
+import { ParsedUrlQuery } from "querystring";
 
 import { BaseFilters, CustomFilter, VendorSources } from "@/components";
-
 import {
   ComparisonOperator,
   GetMetadataQuery,
   GetVendorsQuery,
   IRide,
-  SqlFunction,
   queryBuilder,
+  SqlFunction,
 } from "@/core";
-
 import { colors } from "@/utils";
 
-import { getData, applyFilters } from "./actions";
+import { applyFilters, getData } from "./actions";
 
 /**
  * TODO(pekac):
- * - remove unused deps
  * - eslint
  * - husky push & commit
  * - readme
@@ -28,8 +25,8 @@ interface HomeSearchParams extends ParsedUrlQuery {
   cmp?: ComparisonOperator;
   cmpField?: keyof IRide;
   cmpValue?: string;
-  fn?: SqlFunction;
   field?: keyof IRide;
+  fn?: SqlFunction;
   vendors?: string | string[];
 }
 
@@ -42,8 +39,8 @@ export default async function Home({
     cmp,
     cmpField,
     cmpValue,
-    fn = SqlFunction.SUM,
     field = "total_amount",
+    fn = SqlFunction.SUM,
     vendors = ["2", "1"],
   } = searchParams;
 
@@ -63,8 +60,8 @@ export default async function Home({
     cmp,
     cmpField,
     cmpValue,
-    fn,
     field,
+    fn,
     vendors: vendorIds,
   });
   const { data, error } = await getData({ query });
@@ -101,14 +98,14 @@ export default async function Home({
         </form>
         <Group>
           <LineChart
-            h={300}
             data={ridesInfo}
             dataKey="date"
+            h={300}
             series={meta
               .filter((m) => m.name !== "date")
               .map(({ name }, i) => ({
-                name,
                 color: colors[vendorIds[i] - 1],
+                name,
               }))}
             xAxisLabel="Date"
             yAxisLabel={field}

@@ -1,24 +1,23 @@
 "use client";
 
-import { TextInput, Popover, Button, Select, Stack } from "@mantine/core";
+import { Button, Popover, Select, Stack, TextInput } from "@mantine/core";
 import { IconCaretDown } from "@tabler/icons-react";
 
-import { ComparisonOperator, blacklistedFieldsMap, IRide } from "@/core";
-
 import { IMeta } from "@/app/actions";
+import { blacklistedFieldsMap, ComparisonOperator, IRide } from "@/core";
 
 export interface ICustomFilter {
-  cmpField?: keyof IRide;
   cmp?: ComparisonOperator;
+  cmpField?: keyof IRide;
   cmpValue?: string;
   metadata: IMeta[];
 }
 
 export function CustomFilter({
-  metadata,
-  cmpField,
   cmp,
+  cmpField,
   cmpValue,
+  metadata,
 }: ICustomFilter) {
   const inactiveFilter = !cmpField || !cmp || !cmpValue;
   return (

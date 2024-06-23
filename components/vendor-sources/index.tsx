@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
-import { Popover, Button, Checkbox, Stack } from "@mantine/core";
+import { Button, Checkbox, Popover, Stack } from "@mantine/core";
 import { IconCaretDown } from "@tabler/icons-react";
+import { useState } from "react";
+
 import { colors } from "@/utils";
 
 export interface IVendorSources {
@@ -41,12 +42,12 @@ export function VendorSources({
         <Stack className="p-2 gap-y-4">
           {vendors.map(({ vendorid: id }) => (
             <Checkbox
-              color={colors[id - 1]}
               checked={selectedVendors.includes(id)}
-              onChange={() => handleVendorToggle(id)}
+              color={colors[id - 1]}
               key={id}
               label={`Vendor ${id}`}
               name="vendors"
+              onChange={() => handleVendorToggle(id)}
               value={id.toString()}
             />
           ))}

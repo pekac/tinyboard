@@ -1,8 +1,9 @@
 "use server";
 
-import { IRide } from "@/core/models";
-import { ApiClient } from "@/utils";
 import { redirect } from "next/navigation";
+
+import { IRide } from "@/core";
+import { ApiClient } from "@/utils";
 
 const epUrl = "/pipes/yellow_tripdata_2017_pipe.json";
 
@@ -19,8 +20,8 @@ export interface IMeta {
 }
 
 export interface APIResponse {
-  meta: IMeta[];
   data: IRide[];
+  meta: IMeta[];
 }
 
 export async function getData({ query = "" }): Promise<IReponse<APIResponse>> {

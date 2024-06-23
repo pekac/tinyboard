@@ -40,8 +40,7 @@ export function queryBuilder({
     })
     .join(",");
 
-  return `SELECT DATE(tpep_pickup_datetime) AS date, ${appliedSqlFnPartialQuery}
-        FROM _ GROUP BY DATE(tpep_pickup_datetime) ORDER BY DATE(tpep_pickup_datetime) ASC`;
+  return `SELECT DATE(tpep_pickup_datetime) AS date, ${appliedSqlFnPartialQuery} FROM _ GROUP BY DATE(tpep_pickup_datetime) ORDER BY DATE(tpep_pickup_datetime) ASC`;
 }
 
 function createConditionPartialQuery({

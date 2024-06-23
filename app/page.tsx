@@ -22,7 +22,8 @@ import { getData, applyFilters } from "./actions";
 /**
  * TODO(pekac):
  * - remove unused deps
- * - add tests for the query builder
+ * - eslint
+ * - husky push & commit
  * */
 interface HomeSearchParams extends ParsedUrlQuery {
   cmp?: ComparisonOperator;

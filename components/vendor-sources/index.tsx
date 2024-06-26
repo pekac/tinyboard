@@ -35,7 +35,11 @@ export function VendorSources({
       width={200}
     >
       <Popover.Target>
-        <Button rightSection={<IconCaretDown size={14} />} variant="outline">
+        <Button
+          className="w-full md:w-auto"
+          rightSection={<IconCaretDown size={14} />}
+          variant="outline"
+        >
           Vendor Sources ({selectedVendors.length})
         </Button>
       </Popover.Target>

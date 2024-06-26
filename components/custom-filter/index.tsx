@@ -29,7 +29,11 @@ export function CustomFilter({
       withinPortal={false}
     >
       <Popover.Target>
-        <Button rightSection={<IconCaretDown size={14} />} variant="outline">
+        <Button
+          className="w-full md:w-auto"
+          rightSection={<IconCaretDown size={14} />}
+          variant="outline"
+        >
           Add custom filter {!inactiveFilter && "(*)"}
         </Button>
       </Popover.Target>

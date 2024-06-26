@@ -100,7 +100,7 @@ export default async function Home({
                 cmpValue={cmpValue}
                 metadata={metadataResponse.data.meta}
               />
-              <Button className="md:hidden" type="submit">
+              <Button className="md:hidden w-full" type="submit">
                 Apply filters
               </Button>
             </Group>

@@ -22,7 +22,11 @@ export function BaseFilters({ field, fn, metadata }: IBaseFilters) {
       withinPortal={false}
     >
       <Popover.Target>
-        <Button rightSection={<IconCaretDown size={14} />} variant="outline">
+        <Button
+          className="w-full md:w-auto"
+          rightSection={<IconCaretDown size={14} />}
+          variant="outline"
+        >
           Base Filters
         </Button>
       </Popover.Target>

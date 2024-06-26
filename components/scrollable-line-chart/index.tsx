@@ -27,13 +27,16 @@ export function ScrollableLineChart({
           data={data}
           dataKey={dataKey}
           h={height}
-          legendProps={{ height: 50, verticalAlign: "bottom" }}
+          legendProps={{
+            verticalAlign: "bottom",
+          }}
           series={meta
             .filter((m) => m.name !== "date")
             .map(({ name }, i) => ({
               color: colors[vendorIds[i] - 1],
               name,
             }))}
+          valueFormatter={(value) => value.toFixed(2)}
           withLegend
         />
       </Box>

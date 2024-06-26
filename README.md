@@ -2,6 +2,8 @@
 
 A small dashboard for exploring Tinybird API data.
 
+Check it out here: [tinyboard.vercel.app](https://tinyboard.vercel.app/)
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)

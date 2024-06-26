@@ -25,7 +25,7 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider defaultColorScheme="light" theme={theme}>
-          <main className="p-24 min-h-screen">{children}</main>
+          <main className="p-4 min-h-screen">{children}</main>
         </MantineProvider>
       </body>
     </html>

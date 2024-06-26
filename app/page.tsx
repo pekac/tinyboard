@@ -58,15 +58,17 @@ export default async function Home({
     fn,
     vendors: vendorIds,
   });
+
   const { data, error } = await getData({ query });
 
-  if (error || metadataResponse.error || vendorsResponse.error) {
-    throw new Error("Error fetching data. Check your .env file!");
+  const anyError = error || metadataResponse.error || vendorsResponse.error;
+  if (anyError) {
+    throw anyError;
   }
 
   const { data: ridesInfo, meta } = data;
   return (
-    <Container size="lg">
+    <Container className="md:py-6" size="lg">
       <Stack>
         <form action={applyFilters}>
           <Group className="items-end justify-between">

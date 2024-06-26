@@ -12,7 +12,12 @@ describe("queryBuilder", () => {
   test("builds default query correctly", () => {
     const result = queryBuilder(baseQuery);
     expect(result).toBe(
-      "SELECT DATE(tpep_pickup_datetime) AS date, SUM(CASE WHEN vendorid=1 THEN total_amount ELSE 0 END) AS total_amount_vendor_1,SUM(CASE WHEN vendorid=2 THEN total_amount ELSE 0 END) AS total_amount_vendor_2 FROM _ GROUP BY DATE(tpep_pickup_datetime) ORDER BY DATE(tpep_pickup_datetime) ASC"
+      "SELECT DATE_FORMAT(tpep_pickup_datetime, '%b %d') AS date, " +
+        "SUM(CASE WHEN vendorid=1 THEN total_amount ELSE 0 END) AS total_amount_vendor_1," +
+        "SUM(CASE WHEN vendorid=2 THEN total_amount ELSE 0 END) AS total_amount_vendor_2 " +
+        "FROM _ " +
+        "GROUP BY DATE_FORMAT(tpep_pickup_datetime, '%b %d') " +
+        "ORDER BY DATE_FORMAT(tpep_pickup_datetime, '%b %d') ASC",
     );
   });
 
@@ -20,7 +25,7 @@ describe("queryBuilder", () => {
     const query = { ...baseQuery, fn: SqlFunction.COUNT };
     const result = queryBuilder(query);
     expect(result).toContain(
-      "SUM(CASE WHEN vendorid=1 THEN 1 ELSE 0 END) AS total_amount_vendor_1"
+      "SUM(CASE WHEN vendorid=1 THEN 1 ELSE 0 END) AS total_amount_vendor_1",
     );
   });
 
@@ -33,7 +38,7 @@ describe("queryBuilder", () => {
     };
     const result = queryBuilder(query);
     expect(result).toContain(
-      "WHEN vendorid=1 AND passenger_count>2 THEN total_amount ELSE 0 END"
+      "WHEN vendorid=1 AND passenger_count>2 THEN total_amount ELSE 0 END",
     );
   });
 
@@ -49,7 +54,7 @@ describe("queryBuilder", () => {
     const query = { ...baseQuery, fn: SqlFunction.AVG };
     const result = queryBuilder(query);
     expect(result).toContain(
-      "AVG(CASE WHEN vendorid=1 THEN total_amount ELSE 0 END)"
+      "AVG(CASE WHEN vendorid=1 THEN total_amount ELSE 0 END)",
     );
   });
 

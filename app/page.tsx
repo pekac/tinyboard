@@ -1,8 +1,20 @@
 import { LineChart } from "@mantine/charts";
-import { Button, Container, Group, Stack } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Container,
+  Group,
+  ScrollArea,
+  Stack,
+} from "@mantine/core";
 import { ParsedUrlQuery } from "querystring";
 
-import { BaseFilters, CustomFilter, VendorSources } from "@/components";
+import {
+  BaseFilters,
+  CustomFilter,
+  ScrollableLineChart,
+  VendorSources,
+} from "@/components";
 import {
   ComparisonOperator,
   GetMetadataQuery,
@@ -88,23 +100,21 @@ export default async function Home({
                 cmpValue={cmpValue}
                 metadata={metadataResponse.data.meta}
               />
+              <Button className="md:hidden" type="submit">
+                Apply filters
+              </Button>
             </Group>
-            <Button type="submit">Apply filters</Button>
+            <Button className="hidden md:flex" type="submit">
+              Apply filters
+            </Button>
           </Group>
         </form>
-        <Group>
-          <LineChart
-            data={ridesInfo}
-            dataKey="date"
-            h={300}
-            series={meta
-              .filter((m) => m.name !== "date")
-              .map(({ name }, i) => ({
-                color: colors[vendorIds[i] - 1],
-                name,
-              }))}
-          />
-        </Group>
+        <ScrollableLineChart
+          data={ridesInfo}
+          dataKey="date"
+          meta={meta}
+          vendorIds={vendorIds}
+        />
       </Stack>
     </Container>
   );

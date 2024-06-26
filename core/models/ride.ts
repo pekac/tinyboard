@@ -1,30 +1,30 @@
 export interface IRide {
-  vendorid: number;
-  tpep_pickup_datetime: string;
-  tpep_dropoff_datetime: string;
+  dolocationid: number;
+  extra: number;
+  fare_amount: string;
+  improvement_surcharge: number;
+  mta_tax: number;
   passenger_count: number;
-  trip_distance: number;
+  payment_type: number;
+  pulocationid: number;
   ratecodeid: number;
   store_and_fwd_flag: string;
-  pulocationid: number;
-  dolocationid: number;
-  payment_type: number;
-  fare_amount: string;
-  extra: number;
-  mta_tax: number;
   tip_amount: number;
   tolls_amount: number;
-  improvement_surcharge: number;
   total_amount: number;
+  tpep_dropoff_datetime: string;
+  tpep_pickup_datetime: string;
+  trip_distance: number;
+  vendorid: number;
 }
 
 const stringKeysMap = new Map<keyof IRide, boolean>([
-  ["tpep_pickup_datetime", true],
-  ["tpep_dropoff_datetime", true],
-  ["store_and_fwd_flag", true],
   ["fare_amount", true],
+  ["store_and_fwd_flag", true],
+  ["tpep_dropoff_datetime", true],
+  ["tpep_pickup_datetime", true],
 ]);
 
-export function getIRidePropType(key: keyof IRide): "string" | "number" {
+export function getIRidePropType(key: keyof IRide): "number" | "string" {
   return stringKeysMap.has(key) ? "string" : "number";
 }

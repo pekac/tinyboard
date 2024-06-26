@@ -7,7 +7,7 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode: ["class", '[data-mantine-color-scheme="dark"]'],
-  theme: {},
   plugins: [],
+  theme: {},
 };
 export default config;

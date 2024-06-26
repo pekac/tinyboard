@@ -1,4 +1,5 @@
 "use client";
+
 import { Button, Checkbox, Popover, Stack } from "@mantine/core";
 import { IconCaretDown } from "@tabler/icons-react";
 import { useState } from "react";
@@ -21,7 +22,7 @@ export function VendorSources({
     setSelectedVendors((prev) =>
       prev.includes(vendorId)
         ? prev.filter((id) => id !== vendorId)
-        : [...prev, vendorId]
+        : [...prev, vendorId],
     );
   };
 

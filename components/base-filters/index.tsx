@@ -3,8 +3,7 @@
 import { Button, Popover, Select, Stack } from "@mantine/core";
 import { IconCaretDown } from "@tabler/icons-react";
 
-import { IMeta } from "@/app/actions";
-import { blacklistedFieldsMap, IRide, SqlFunction } from "@/core";
+import { blacklistedFieldsMap, IMeta, IRide, SqlFunction } from "@/core";
 
 export interface IBaseFilters {
   field: keyof IRide;

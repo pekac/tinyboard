@@ -1,11 +1,10 @@
-import { IRide, getIRidePropType } from "../models";
-
+import { getIRidePropType, IRide } from "../models";
 import { ComparisonOperator, SqlFunction } from "./enums";
 
 export const blacklistedFieldsMap = new Map<string, boolean>([
-  ["vendorid", true],
-  ["tpep_pickup_datetime", true],
   ["tpep_dropoff_datetime", true],
+  ["tpep_pickup_datetime", true],
+  ["vendorid", true],
 ]);
 
 export interface IQueryBuilder {

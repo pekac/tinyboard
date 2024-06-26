@@ -6,8 +6,8 @@ export class ApiClient {
 
   async fetch(endpoint: string, options?: RequestInit): Promise<Response> {
     const headers = new Headers({
-      "Content-Type": "application/json",
       Authorization: `Bearer ${this.token}`,
+      "Content-Type": "application/json",
       ...options?.headers,
     });
 

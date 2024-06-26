@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 
-import { IRide } from "@/core";
+import { IMeta, IRide } from "@/core";
 import { ApiClient } from "@/utils";
 
 const epUrl = "/pipes/yellow_tripdata_2017_pipe.json";
@@ -13,11 +13,6 @@ export type IReponse<T> =
       error: null;
     }
   | { data: null; error: Error };
-
-export interface IMeta {
-  name: string;
-  type: string;
-}
 
 export interface APIResponse {
   data: IRide[];

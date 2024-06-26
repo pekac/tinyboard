@@ -1,3 +1,4 @@
+/* eslint-disable perfectionist/sort-objects */
 /** @type {import('postcss-load-config').Config} */
 module.exports = {
   plugins: {

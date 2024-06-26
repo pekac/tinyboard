@@ -103,8 +103,6 @@ export default async function Home({
                 color: colors[vendorIds[i] - 1],
                 name,
               }))}
-            xAxisLabel="Date"
-            yAxisLabel={field}
           />
         </Group>
       </Stack>

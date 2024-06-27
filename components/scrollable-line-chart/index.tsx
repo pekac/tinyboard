@@ -5,6 +5,8 @@ import { Box, ScrollArea } from "@mantine/core";
 
 import { IMeta, IRide } from "@/core";
 import { colors } from "@/utils";
+
+import { ChartTooltip } from "../chart-tooltip";
 const height = 300;
 
 export interface IScrollableLineChart {
@@ -36,7 +38,11 @@ export function ScrollableLineChart({
               color: colors[vendorIds[i] - 1],
               name,
             }))}
-          valueFormatter={(value) => value.toFixed(2)}
+          tooltipProps={{
+            content: ({ label, payload }) => (
+              <ChartTooltip label={`${label}, 2017`} payload={payload} />
+            ),
+          }}
           withLegend
         />
       </Box>
